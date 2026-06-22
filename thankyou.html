@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Brigade Belvedere Budigere Cross</title>
+  <meta name="description" content="Thank you for your enquiry. We have received your details for Brigade Belvedere." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'oklch(0.99 0.005 80)',
+            foreground: 'oklch(0.18 0.02 250)',
+            card: 'oklch(1 0 0)',
+            'card-foreground': 'oklch(0.18 0.02 250)',
+            primary: { DEFAULT: 'oklch(0.22 0.04 250)', foreground: 'oklch(0.99 0 0)' },
+            secondary: { DEFAULT: 'oklch(0.96 0.02 60)', foreground: 'oklch(0.22 0.04 250)' },
+            muted: { DEFAULT: 'oklch(0.96 0.01 80)', foreground: 'oklch(0.45 0.02 250)' },
+            accent: { DEFAULT: 'oklch(0.68 0.16 50)', foreground: 'oklch(1 0 0)' },
+            gold: 'oklch(0.75 0.15 75)',
+            bronze: 'oklch(0.55 0.09 45)',
+            border: 'oklch(0.929 0.013 255.508)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: oklch(0.99 0.005 80);
+      color: oklch(0.18 0.02 250);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    
+    /* Animated SVG Checkmark */
+    .checkmark {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: block;
+      stroke-width: 2.5;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+      box-shadow: inset 0px 0px 0px oklch(0.627 0.194 149.214); /* green checkmark */
+      animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s;
+    }
+    
+    .checkmark-circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 2.5;
+      stroke-miterlimit: 10;
+      stroke: oklch(0.627 0.194 149.214);
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+    
+    .checkmark-check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      stroke: #fff;
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    }
+    
+    @keyframes stroke {
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    
+    @keyframes scale {
+      0%, 100% {
+        transform: none;
+      }
+      50% {
+        transform: scale3d(1.1, 1.1, 1);
+      }
+    }
+    
+    @keyframes fill {
+      100% {
+        box-shadow: inset 0px 0px 0px 50px oklch(0.627 0.194 149.214);
+      }
+    }
+    
+    .modal-overlay {
+      background-color: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white shadow-sm">
+    <div class="mx-auto flex max-w-[1400px] items-center justify-between gap-2 px-4 py-4 sm:py-5 sm:gap-4">
+      <a href="index.html" aria-label="Brigade Belvedere home" class="shrink-0 flex items-center gap-2">
+        <img src="logo.png" alt="Brigade Belvedere Logo" title="Brigade Belvedere Logo" class="h-14 w-auto object-contain" />
+      </a>
+      <nav aria-label="Primary" class="hidden flex-1 lg:block">
+        <ul class="flex items-center justify-center gap-1 text-sm font-medium text-foreground">
+          <li><a href="index.html#price"
+              class="rounded-md px-3 py-2 transition-colors hover:bg-primary hover:text-primary-foreground">Price</a>
+          </li>
+          <li><a href="index.html#amenities"
+              class="rounded-md px-3 py-2 transition-colors hover:bg-primary hover:text-primary-foreground">Amenities</a>
+          </li>
+          <li><a href="index.html#gallery"
+              class="rounded-md px-3 py-2 transition-colors hover:bg-primary hover:text-primary-foreground">Gallery</a>
+          </li>
+          <li><a href="index.html#location"
+              class="rounded-md px-3 py-2 transition-colors hover:bg-primary hover:text-primary-foreground">Location</a>
+          </li>
+          <li><button type="button" onclick="openModal('Download Brochure')"
+              class="rounded-md px-3 py-2 transition-colors hover:bg-primary hover:text-primary-foreground cursor-pointer">Download
+              Brochure</button></li>
+        </ul>
+      </nav>
+      <div class="flex items-center gap-2 sm:gap-4">
+        <a href="tel:+919980189914" aria-label="Call channel partner"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm text-primary-foreground shadow-md transition-transform duration-200 hover:scale-110">📞</a>
+        <button type="button" onclick="openModal('Request Call Back')"
+          class="hidden rounded bg-bronze px-4 py-2.5 text-xs font-bold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg sm:block">Request
+          Call Back</button>
+        <button type="button" onclick="openMobileNav()" aria-label="Open navigation menu"
+          class="rounded p-2 text-foreground hover:bg-muted lg:hidden">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div id="mobileNav" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm lg:hidden"
+    onclick="if(event.target===this)closeMobileNav()">
+    <nav class="absolute right-0 top-0 h-full w-[260px] bg-white p-5 shadow-2xl">
+      <div class="flex items-center justify-between border-b pb-4">
+        <span class="text-sm font-bold text-primary">Menu</span>
+        <button onclick="closeMobileNav()" class="text-foreground hover:text-primary" aria-label="Close menu">✕</button>
+      </div>
+      <ul class="mt-6 space-y-2 text-sm font-semibold text-foreground">
+        <li><a href="index.html#price" onclick="closeMobileNav()"
+            class="block rounded-md px-3 py-2.5 transition-colors hover:bg-primary hover:text-primary-foreground">Price</a>
+        </li>
+        <li><a href="index.html#amenities" onclick="closeMobileNav()"
+            class="block rounded-md px-3 py-2.5 transition-colors hover:bg-primary hover:text-primary-foreground">Amenities</a>
+        </li>
+        <li><a href="index.html#gallery" onclick="closeMobileNav()"
+            class="block rounded-md px-3 py-2.5 transition-colors hover:bg-primary hover:text-primary-foreground">Gallery</a>
+        </li>
+        <li><a href="index.html#location" onclick="closeMobileNav()"
+            class="block rounded-md px-3 py-2.5 transition-colors hover:bg-primary hover:text-primary-foreground">Location</a>
+        </li>
+        <li><button type="button" onclick="closeMobileNav(); openModal('Download Brochure')"
+            class="block w-full rounded-md px-3 py-2.5 text-left transition-colors hover:bg-primary hover:text-primary-foreground">Download
+            Brochure</button></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- THANK YOU MAIN CONTENT -->
+  <section class="relative bg-gradient-to-b from-background via-muted/10 to-background py-20 overflow-hidden min-h-[60vh] flex items-center">
+    <!-- Accent background glows -->
+    <div class="pointer-events-none absolute -right-24 top-1/4 h-96 w-96 rounded-full bg-accent/5 blur-[120px]"></div>
+    <div class="pointer-events-none absolute -left-24 bottom-1/4 h-96 w-96 rounded-full bg-bronze/5 blur-[120px]"></div>
+
+    <div class="mx-auto max-w-xl px-4 text-center relative z-10">
+      
+      <!-- Animated checkmark container -->
+      <div class="flex justify-center">
+        <svg class="checkmark shadow-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+          <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+      </div>
+
+      <h1 class="mt-8 text-3xl font-bold tracking-tight text-primary md:text-4xl" style="font-family: 'Playfair Display', serif;">
+        Submission Successful!
+      </h1>
+      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
+        Thank you for expressing your interest in <strong class="text-foreground">Brigade Belvedere, Budigere Cross</strong>. We have received your lead details. Our authorized specialist will contact you shortly on the registered mobile number with pricing, floor plans, and exclusive pre-launch benefits.
+      </p>
+
+      <div class="mt-10">
+        <a href="index.html" class="inline-block rounded-md bg-bronze px-8 py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:opacity-90">
+          Back to Home Page
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="brochure" class="bg-primary py-12 text-primary-foreground">
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-3">
+      <div>
+        <img src="logo.png" alt="Brigade Belvedere Logo" title="Brigade Belvedere Logo" class="h-10 w-auto object-contain mb-4" />
+        <p class="mt-4 text-sm opacity-90">Authorised Channel Partner for Brigade Belvedere, Bengaluru.
+          RERA-compliant bookings and end-to-end home-buying support.</p>
+        <div class="mt-6 space-y-3 text-sm opacity-90">
+          <p class="font-semibold">Agent RERA Registration No. :</p>
+          <p class="leading-6">HRERA-PKL-REA-970-2022</p>
+          <p class="font-semibold">Project RERA:</p>
+          <p class="leading-6">Awaiting Registration / Coming Soon</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-base font-bold text-gold">Contact</h3>
+        <ul class="mt-3 space-y-1 text-sm opacity-90">
+          <li>📞 <a href="tel:+919980189914" class="hover:underline">+91 99801 89914</a></li>
+          <li>📍 Budigere Cross, Bengaluru East — 562129</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-base font-bold text-gold">Regulatory Information Disclaimer</h3>
+        <p class="mt-3 text-xs opacity-80 font-normal">Disclaimer: This is not the official developer website. The content on this website is for informational purposes only and does not constitute an offer to avail of any service. Prices, layouts, and sizes mentioned are subject to change without notice. All images, layouts, and animations displayed are artistic impressions / representational images only. This website is owned and managed by Realhubb Ventures Pvt Ltd, an authorized channel marketing partner (Agent RERA No. HRERA-PKL-REA-970-2022). We may share data with RERA registered brokers/companies for further processing. We may also send updates to the mobile number/email id registered with us.</p>
+      </div>
+    </div>
+    <div
+      class="mx-auto mt-8 flex max-w-6xl flex-col items-center justify-between gap-3 px-4 text-xs opacity-70 sm:flex-row">
+      <p>© <span id="year"></span> Brigade Belvedere Bengaluru · Authorised Channel Partner</p>
+      <p class="flex gap-4">
+        <button type="button" onclick="openPolicyModal('privacyModal')" class="hover:text-gold hover:underline">Privacy
+          Policy</button>
+        <button type="button" onclick="openPolicyModal('termsModal')" class="hover:text-gold hover:underline">Terms and
+          Conditions</button>
+      </p>
+    </div>
+  </footer>
+
+  <!-- PRIVACY POLICY MODAL -->
+  <div id="privacyModal" class="fixed inset-0 z-50 hidden items-center justify-center modal-overlay p-4"
+    onclick="if(event.target===this)closePolicyModal('privacyModal')">
+    <div class="relative flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg bg-white shadow-2xl">
+      <button onclick="closePolicyModal('privacyModal')" aria-label="Close"
+        class="absolute right-3 top-3 z-10 rounded-full bg-white/80 px-2 py-1 text-sm text-foreground hover:bg-white">✕</button>
+      <div class="flex items-center justify-center bg-white p-4 border-b border-border">
+        <img src="logo.png" alt="Brigade Belvedere Logo" title="Brigade Belvedere Logo" class="h-10 w-auto object-contain" />
+      </div>
+      <div class="overflow-y-auto p-6">
+        <h3 class="text-xl font-bold text-primary">Privacy Policy</h3>
+        <p class="mt-1 text-xs text-muted-foreground">Last Updated: <span class="policy-date"></span></p>
+        <p class="mt-4 text-sm leading-6 text-foreground/90 font-normal">This website is managed by <strong>Realhubb
+            Ventures Pvt Ltd</strong>, an authorised RERA-registered real estate agent (RERA Registration No.
+          HRERA-PKL-REA-970-2022) and channel partner for Brigade Belvedere, Bengaluru. We respect
+          your privacy and are committed to protecting any personal information you share with us through this website.
+        </p>
+        <h4 class="mt-5 text-sm font-bold text-foreground">1. Information We Collect</h4>
+        <p class="mt-2 text-sm leading-6 text-foreground/90 font-normal">When you submit an enquiry, schedule a site
+          visit, or download our brochure, we may collect details such as your name, phone number, email address and any
+          other information you choose to provide.</p>
+        <h4 class="mt-5 text-sm font-bold text-foreground">2. How We Use Your Information</h4>
+        <p class="mt-2 text-sm leading-6 text-foreground/90 font-normal">Your information is used to respond to your
+          enquiry, share project updates, brochures, pricing and floor plans, and to assist with site visits and
+          bookings for Brigade Belvedere. By submitting your details, you consent to receive communication via Call, SMS,
+          WhatsApp or Email.</p>
+        <h4 class="mt-5 text-sm font-bold text-foreground">3. Sharing of Information</h4>
+        <p class="mt-2 text-sm leading-6 text-foreground/90 font-normal">To provide seamless service, we may share your
+          data with RERA-registered associates, brokers and the project developer (Brigade Group) for further
+          processing and expert assistance.</p>
+        <h4 class="mt-5 text-sm font-bold text-foreground">4. Data Security</h4>
+        <p class="mt-2 text-sm leading-6 text-foreground/90 font-normal">We take reasonable precautions to protect your
+          personal information from unauthorised access, alteration, disclosure or destruction.</p>
+        <h4 class="mt-5 text-sm font-bold text-foreground">5. Your Choices</h4>
+        <p class="mt-2 text-sm leading-6 text-foreground/90 font-normal">You may opt out of further communication at any
+          time by contacting us at +91 99801 89914.</p>
+        <div class="mt-6 flex justify-end border-t border-border pt-4">
+          <button onclick="closePolicyModal('privacyModal')"
+            class="rounded-md bg-primary px-6 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS & CONDITIONS MODAL -->
+  <div id="termsModal" class="fixed inset-0 z-50 hidden items-center justify-center modal-overlay p-4"
+    onclick="if(event.target===this)closePolicyModal('termsModal')">
+    <div class="relative flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg bg-white shadow-2xl">
+      <button onclick="closePolicyModal('termsModal')" aria-label="Close"
+        class="absolute right-3 top-3 z-10 rounded-full bg-white/80 px-2 py-1 text-sm text-foreground hover:bg-white">✕</button>
+      <div class="flex items-center justify-center bg-white p-4 border-b border-border">
+        <img src="logo.png" alt="Brigade Belvedere Logo" title="Brigade Belvedere Logo" class="h-10 w-auto object-contain" />
+      </div>
+      <div class="overflow-y-auto p-6">
+        <h3 class="text-xl font-bold text-primary">Terms &amp; Conditions</h3>
+        <p class="mt-1 text-xs text-muted-foreground">Last Updated: <span class="policy-date"></span></p>
+        <p class="mt-4 text-sm leading-6 text-foreground/90 font-normal">Welcome to our website. By accessing or using
+          this website, you agree to comply with and be bound by the following Terms &amp; Conditions. Please read them
+          carefully.</p>
+        <h4 class="mt-5 text-sm font-bold text-foreground">1. Website Purpose and Authorised Status</h4>
+        <p class="mt-2 text-sm leading-6 text-foreground/90 font-normal">This website is managed by <strong>Realhubb
+            Ventures Pvt Ltd</strong>, an authorised RERA-registered real estate agent (RERA Registration No.
+          HRERA-PKL-REA-970-2022) and channel partner of Brigade Group for Brigade Belvedere, Bengaluru. This
+          website is for informational and advertising purposes only and is not the official builder website.</p>
+        <h4 class="mt-5 text-sm font-bold text-foreground">2. Pricing and Availability Disclaimers</h4>
+        <p class="mt-2 text-sm leading-6 text-foreground/90 font-normal">Prices, availability, sizes and layout plans of apartments at Brigade Belvedere are subject to change without notice. All visual materials, drawings, animations and mockups are artistic representations only and should not be treated as final.</p>
+        <div class="mt-6 flex justify-end border-t border-border pt-4">
+          <button onclick="closePolicyModal('termsModal')"
+            class="rounded-md bg-primary px-6 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Navigation controls
+    function openMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.remove('hidden');
+      nav.classList.add('flex');
+    }
+
+    function closeMobileNav() {
+      const nav = document.getElementById('mobileNav');
+      nav.classList.add('hidden');
+      nav.classList.remove('flex');
+    }
+
+    // Modal controls
+    function openModal(title) {
+      // Redirect back to home page with query param to open modal
+      window.location.href = "index.html?openModal=" + encodeURIComponent(title);
+    }
+
+    // Policy modals controls
+    function openPolicyModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+      document.getElementById(id).classList.add('flex');
+    }
+
+    function closePolicyModal(id) {
+      document.getElementById(id).classList.add('hidden');
+      document.getElementById(id).classList.remove('flex');
+    }
+
+    // Set Date & Copyright Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const policyDates = document.querySelectorAll('.policy-date');
+    const formattedDate = new Date().toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    });
+    policyDates.forEach(el => el.textContent = formattedDate);
+  </script>
+</body>
+
+</html>
